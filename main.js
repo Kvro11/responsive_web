@@ -1,12 +1,3 @@
-// Function to determine the correct base path
-function getBasePath(filePath) {
-  // Ensure correct relative path for each page
-  const currentPath = window.location.pathname;
-  const depth = currentPath.split('/').length - 2; // Depth from root
-  const relativePrefix = '../'.repeat(depth);
-  return relativePrefix + filePath;
-}
-
 // Function to load HTML into a container
 async function loadHTML(containerId, filePath) {
   const container = document.getElementById(containerId);
@@ -40,6 +31,10 @@ function setActiveNavLink() {
   });
 }
 
-// Load the header and footer dynamically
-loadHTML('header', getBasePath('components/Header/index.html'));
-loadHTML('footer', getBasePath('components/Footer/index.html'));
+// Determine the base path dynamically
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const basePath = isLocal ? "" : "/responsive_web"; // Replace "responsive_web" with your repository name if different
+
+// Load the header and footer using the correct base path
+loadHTML('header', `${basePath}/components/Header/index.html`);
+loadHTML('footer', `${basePath}/components/Footer/index.html`);
