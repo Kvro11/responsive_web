@@ -1,17 +1,11 @@
-// // Function to load HTML into a container
-// async function loadHTML(containerId, filePath) {
-//   const container = document.getElementById(containerId);
-//   if (container) {
-//     const response = await fetch(filePath);
-//     const html = await response.text();
-//     container.innerHTML = html;
-//   }
-// }
-
-// // Load the header and footer
-// loadHTML('header', './components/Header/index.html');
-// // loadHTML('footer', 'footer.html');
-
+// Function to determine the correct base path
+function getBasePath(filePath) {
+  // Ensure correct relative path for each page
+  const currentPath = window.location.pathname;
+  const depth = currentPath.split('/').length - 2; // Depth from root
+  const relativePrefix = '../'.repeat(depth);
+  return relativePrefix + filePath;
+}
 
 // Function to load HTML into a container
 async function loadHTML(containerId, filePath) {
@@ -35,21 +29,17 @@ async function loadHTML(containerId, filePath) {
 function setActiveNavLink() {
   const navLinks = document.querySelectorAll('#header li a');
   const currentPath = window.location.pathname;
-  console.log("Current Path: ", currentPath); // Debugging the current path
 
   navLinks.forEach(link => {
     const linkPath = link.getAttribute('href');
-    console.log("Link Path: ", linkPath); // Debugging the href attribute
-
-    if (linkPath.includes(currentPath)) {  // Make the match flexible
+    if (currentPath.endsWith(linkPath)) {
       link.classList.add('active');
-      console.log("Active Link:", link);
     } else {
       link.classList.remove('active');
     }
   });
 }
 
-// Load the header and footer
-loadHTML('header', '/components/Header/index.html');
-loadHTML('footer', '/components/Footer/index.html');
+// Load the header and footer dynamically
+loadHTML('header', getBasePath('components/Header/index.html'));
+loadHTML('footer', getBasePath('components/Footer/index.html'));
