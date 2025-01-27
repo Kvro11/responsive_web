@@ -1,0 +1,32 @@
+.portfolio-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  padding: 3rem 15rem;
+
+  .project-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(34rem, 100%), 1fr));
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+    list-style-type: none;
+
+    li {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (width <= 48em) {
+  .portfolio-wrap {
+    padding: 3rem 1.5rem;
+  }
+}

@@ -1,0 +1,128 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.5rem;
+  padding: 1rem 15rem;
+  background-color: #74c69d;
+  color: #f5f5f5;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    /* border: 1px solid red; */
+
+    > h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    > img {
+      width: clamp(2.5rem, 5vw, 4rem);
+      height: clamp(1.8rem, 5vw, 3rem);
+    }
+  }
+
+  .navbar {
+    width: 27%;
+    > ul {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: #f5f5f5;
+        }
+        a:visited {
+          color: #f5f5f5 !important;
+        }
+
+        a::after {
+          position: absolute;
+          bottom: -0.3rem;
+          left: 0;
+          content: " ";
+          width: 0%;
+          height: 0.15rem;
+          background-color: aliceblue;
+          transition: ease-in 0.2s;
+        }
+
+        a:hover::after {
+          width: 100%;
+        }
+        a.active::after {
+          width: 100%;
+        }
+        /* a:hover {
+          color: #000;
+        }
+        a.active {
+          color: #000;
+        } */
+      }
+    }
+    .open-menu,
+    .close-menu,
+    .checkBox {
+      display: none;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      font-size: 1.7rem;
+      cursor: pointer;
+      /* border: 1px solid red; */
+    }
+    .checkBox {
+      display: none;
+    }
+  }
+}
+
+@media (width <= 48em) {
+  #header {
+    /* position: relative; */
+    height: 4.5rem;
+    padding: 1.5rem;
+
+    .navbar {
+      ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        z-index: 100;
+        width: 70%;
+        background-color: #3d5147;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: all 0.2s ease-in-out;
+      }
+      .open-menu,
+      .close-menu {
+        display: block;
+      }
+      .checkBox:checked ~ .navWrap {
+        right: 0;
+      }
+    }
+  }
+}

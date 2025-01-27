@@ -1,0 +1,37 @@
+#footer {
+  padding: 0 15rem;
+  background-color: #74c69d;
+  #footer-wrap {
+    height: 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .social-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        width: clamp(1.5rem, 3.6vw, 2rem);
+        height: 1.5rem;
+      }
+    }
+
+    span {
+      color: #f5f5f5;
+      font-size: clamp(0.9rem, 3.6vw, 1.1rem);
+    }
+  }
+}
+
+@media (width <= 48em) {
+  #footer {
+    padding: 0 1.5rem;
+    #footer-wrap {
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+}

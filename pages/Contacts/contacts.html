@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/components/Header/index.css">
+  <link rel="stylesheet" href="/components/Footer/index.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <title>Contacts</title>
+  <!-- <style>
+    /* Ensure the body and html take up the full viewport */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* Ensure the map container takes full height */
+    .contact-wrap {
+      height: 80vh; /* Adjust to the desired height */
+    }
+
+    /* Map styling */
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style> -->
+</head>
+<body>
+  <section id="header"></section>
+  <div class="spacer"></div>
+  <div class="contact-wrap">
+    <div class="partner-info">
+      <h2>Contact Us</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit.
+      </p>
+    </div>
+    <div class="component-wrap">
+      <div class="email-wrap">
+        <div>
+          <label for="text">Name</label>
+          <input id="text" class="input" type="text" required/>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" class="input" type="email" required/>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message"></textarea>
+        </div>
+        <button>Submit</button>
+      </div>
+      <div id="map"></div>
+    </div>
+  </div>
+  <section id="footer"></section>
+  <script src="/main.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const manilaLat = 14.5995;
+    const manilaLon = 120.9842;
+    // Initialize the map
+    const map = L.map('map').setView([manilaLat, manilaLon], 13);   // Coordinates for Sydney, Australia
+
+    // Add tile layer (this is OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker to the map
+    const marker = L.marker([manilaLat, manilaLon]).addTo(map);
+    marker.bindPopup("<b>Hello!</b><br>This is Kvro office.").openPopup();
+  </script>
+</body>
+</html>
