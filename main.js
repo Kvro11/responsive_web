@@ -51,5 +51,5 @@ function setActiveNavLink() {
 }
 
 // Load the header and footer
-loadHTML('header', '/components/Header/index.html');
-loadHTML('footer', '/components/Footer/index.html');
+loadHTML('header', 'components/Header/index.html');
+loadHTML('footer', 'components/Footer/index.html');
