@@ -33,8 +33,8 @@ function setActiveNavLink() {
 
 // Determine the base path dynamically
 const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-const basePath = isLocal ? "" : "/responsive_web"; // Replace "responsive_web" with your repository name if different
+const basePath = isLocal ? "/" : ""; // Replace "responsive_web" with your repository name if different
 
 // Load the header and footer using the correct base path
-loadHTML('header', `${basePath}/components/Header/index.html`);
-loadHTML('footer', `${basePath}/components/Footer/index.html`);
+loadHTML('header', `${basePath}components/Header/index.html`);
+loadHTML('footer', `${basePath}components/Footer/index.html`);
